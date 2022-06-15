@@ -4,11 +4,28 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
+"""Read in `file` and print out the frequency of words in that file."""
+
 
 def print_word_freq(file):
-    """Read in `file` and print out the frequency of words in that file."""
-    pass
+    print(f"Your file is: {file}")
+    with open(file) as open_file:
+        read_file = open_file.readlines()
+    # print(read_file)
+    file_as_string = str("".join(read_file))
+    str(file_as_string.replace(",", " "))
+    print(file_as_string)
+    print(type(read_file))
+    print(type(file_as_string))
+    print(len(file_as_string))
 
+
+def omit_stop_words(dictionary):
+    for words in STOP_WORDS:
+        print(words)
+
+
+#omit_stop_words("") why does calling this here print the words at the top of the console?
 
 if __name__ == "__main__":
     import argparse

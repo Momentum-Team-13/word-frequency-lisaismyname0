@@ -1,0 +1,46 @@
+we will be manipulating strings in python
+
+refer to the jupyter notebooks (notebook 7) section on:
+- sequences
+- string methods
+- how to replace
+
+also see: how to read files (book 9)
+
+in python opening and reading files are not the same thing
+
+if "__name__" == "__main__"
+^ this makes it so you can the program from the command line and you are able to pass it the name of a file
+eg:
+python word_frequency.py simple-test-file.txt (must
+ be in directory for this to work)
+
+write function so it works on any file
+
+list of steps:
+(a lot of this is from the string methods notebooks)
+- remove punctuation using item.replace()
+- file.split("")
+    this will split the reading into individual word items
+    - from here can i make each word 1/2 of a tuple where the word is the key and then i designate it a value of 0
+    (look into using popitem() but this may or may not allow you specify which item... del mioght work!)
+    - this will also allow me to delete all of my stop words (along with their value of 0) out of my dictionary
+        -would it hurt to do this at the end?
+        does it matter?
+- file.lower()
+    normalize to lowercase
+- stop words
+    make a loop that cycles through the stop words and write code to skip over them
+- go through file and keep count of how often each word is used
+    word value starts = 0
+
+    as word appears, value += 1
+    or word_count_list.append(*)
+    and then show quantity of []
+    (following example in read me)
+
+
+
+
+
+
