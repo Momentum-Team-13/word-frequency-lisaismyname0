@@ -1,4 +1,5 @@
 from pydoc import text
+from re import A
 
 
 STOP_WORDS = [
@@ -12,19 +13,23 @@ def print_word_freq(file):
     print(f"Your file is: {file}")
     with open(file) as open_file:
         read_file = open_file.read()
-    print(read_file)
+    new_file = read_file.split()
+    for word in STOP_WORDS:
+        if word in new_file:
+            new_file.remove(word)
+    print(new_file)
     # omit stop words around here
     lowercase = read_file.lower()
     lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
     lowercase_without_punct = lowercase_without_punct1.replace(
         "?", "").replace("-", "")
     text_split = lowercase_without_punct.split()
-    print(text_split)
+
     text_dictionary = dict.fromkeys(text_split, 0)
     for word in text_split:
         text_dictionary[word] += 1
     alphabetized = dict(sorted(text_dictionary.items()))
-    print(alphabetized)
+    return alphabetized
 
 
 """    words = text_dictionary.keys()
@@ -49,7 +54,7 @@ if __name__ == "__main__":
         print(f"{file} does not exist!")
         exit(1)
 
-#omit_stop_words(" ")
+# omit_stop_words(" ")
 
 """    for word in read_file:
         if word in STOP_WORDS:
