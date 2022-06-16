@@ -11,43 +11,41 @@ STOP_WORDS = [
 def print_word_freq(file):
     print(f"Your file is: {file}")
     with open(file) as open_file:
-        read_file = open_file.readlines()
-    # print(read_file)
-    file_as_string = str("".join(read_file))
-    str(file_as_string.replace(",", " "))
-    print(file_as_string)
+        read_file = open_file.read()
     print(type(read_file))
-    print(type(file_as_string))
-    print(len(file_as_string))
-    lowercase = file_as_string.lower()
-    print(lowercase)
+    # omit stop words around here
+    lowercase = read_file.lower()
+    # print(lowercase)
     lowercase_without_periods = lowercase.replace(".", "")
-    print(lowercase_without_periods)
+    # print(lowercase_without_periods)
     lowercase_without_commas = lowercase_without_periods.replace(",", "")
-    print(lowercase_without_commas)
+    # print(lowercase_without_commas)
     lowercase_without_question = lowercase_without_commas.replace("?", "")
-    print(lowercase_without_question)
+    # print(lowercase_without_question)
     lowercase_no_hyphen = lowercase_without_question.replace(
         "-", " ")
-    print(lowercase_no_hyphen)
-    lowercase_no_apostrophe = lowercase_no_hyphen.replace("'", " ")
-    print(lowercase_no_apostrophe)
-    text_split = lowercase_no_apostrophe.split(" ")
+    # print(lowercase_no_hyphen)
+    # lowercase_no_n = lowercase_no_hyphen.replace()
+    # print(lowercase_no_n)
+    text_split = lowercase_no_hyphen.split()
     print(text_split)
-    text_dictionary = dict.fromkeys(text_split, "0")
+    text_dictionary = dict.fromkeys(text_split, 0)
     print(text_dictionary)
-    for key in text_dictionary:
-        if f"{key}" == f"{key}":
-            print("got a double! with :" f"{key}" f"{key}")
+    for word in text_split:
+        text_dictionary[word] += 1
+    print(text_dictionary)
+
+
+"""    words = text_dictionary.keys()
+    print(words)
+    frequency = text_dictionary.values()
+    print(frequency)"""
 
 
 def omit_stop_words(dictionary):
     for words in STOP_WORDS:
         print(words)
 
-
-# omit_stop_words("")
-# why does calling this here print the words at the top of the console?
 
 if __name__ == "__main__":
     import argparse
@@ -64,3 +62,5 @@ if __name__ == "__main__":
     else:
         print(f"{file} does not exist!")
         exit(1)
+
+#omit_stop_words(" ")
