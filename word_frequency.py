@@ -36,12 +36,9 @@ def print_word_freq(file):
     print(text_split)
     text_dictionary = dict.fromkeys(text_split, "0")
     print(text_dictionary)
-
-
-"""    final_text = [text_split]
-    print(final_text)
-    final_text_dict = {word: "0" for word in final_text}
-    print(final_text_dict)"""
+    for key in text_dictionary:
+        if f"{key}" == f"{key}":
+            print("got a double! with :" f"{key}" f"{key}")
 
 
 def omit_stop_words(dictionary):
