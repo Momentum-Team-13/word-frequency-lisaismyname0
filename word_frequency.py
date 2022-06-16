@@ -15,18 +15,15 @@ def print_word_freq(file):
     print(read_file)
     # omit stop words around here
     lowercase = read_file.lower()
-    lowercase_without_periods = lowercase.replace(".", "")
-    lowercase_without_commas = lowercase_without_periods.replace(",", "")
-    lowercase_without_question = lowercase_without_commas.replace("?", "")
-    lowercase_no_hyphen = lowercase_without_question.replace(
-        "-", " ")
-    text_split = lowercase_no_hyphen.split()
+    lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
+    lowercase_without_punct = lowercase_without_punct1.replace(
+        "?", "").replace("-", "")
+    text_split = lowercase_without_punct.split()
+    print(text_split)
     text_dictionary = dict.fromkeys(text_split, 0)
-    print(text_dictionary)
     for word in text_split:
         text_dictionary[word] += 1
     alphabetized = dict(sorted(text_dictionary.items()))
-    # print(text_dictionary)
     print(alphabetized)
 
 
