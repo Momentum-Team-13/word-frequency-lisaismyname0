@@ -29,12 +29,28 @@ def print_word_freq(file):
     for word in screened_words:
         text_dictionary[word] += 1
     alphabetized = dict(sorted(text_dictionary.items()))
-    print(type(alphabetized))
     for key, value in alphabetized.items():
         if value == 1:
-            print(key, value, "| *")
-        else:
-            print(key, "|", value)
+            value = f"{value}" + " *"
+        if value == 2:
+            value = f"{value}" + " **"
+        if value == 3:
+            value = f"{value}" + " ***"
+        if value == 4:
+            value = f"{value}" + " ****"
+        if value == 5:
+            value = f"{value}" + " *****"
+        if value == 6:
+            value = f"{value}" + " ******"
+        if value == 7:
+            value = f"{value}" + " *******"
+        if value == 8:
+            value = f"{value}" + " ********"
+        if value == 9:
+            value = f"{value}" + " *********"
+        if value == 10:
+            value = f"{value}" + " **********"
+        print(key, "|", value)
 
 
 if __name__ == "__main__":
