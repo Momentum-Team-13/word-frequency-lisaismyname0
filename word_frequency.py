@@ -23,15 +23,18 @@ def print_word_freq(file):
     for word in text_split:
         if word in STOP_WORDS:
             ommited_words.append(word)
-            print(word)
         if word not in STOP_WORDS:
             screened_words.append(word)
-    print(screened_words)
     text_dictionary = dict.fromkeys(screened_words, 0)
     for word in screened_words:
         text_dictionary[word] += 1
     alphabetized = dict(sorted(text_dictionary.items()))
-    print(alphabetized)
+    print(type(alphabetized))
+    for key, value in alphabetized.items():
+        if value == 1:
+            print(key, value, "| *")
+        else:
+            print(key, "|", value)
 
 
 if __name__ == "__main__":
@@ -49,9 +52,3 @@ if __name__ == "__main__":
     else:
         print(f"{file} does not exist!")
         exit(1)
-
-# omit_stop_words(" ")
-
-""" for word in read_file:
-        if word in STOP_WORDS:
-            read_file=read_file.replace(word, "")"""
