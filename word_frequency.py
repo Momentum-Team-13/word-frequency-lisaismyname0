@@ -16,7 +16,7 @@ def print_word_freq(file):
     lowercase = read_file.lower()
     lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
     lowercase_without_punct = lowercase_without_punct1.replace(
-        "?", "").replace("-", "")
+        "?", "")
     ommited_words = []
     screened_words = []
     text_split = lowercase_without_punct.split()
@@ -30,27 +30,7 @@ def print_word_freq(file):
         text_dictionary[word] += 1
     alphabetized = dict(sorted(text_dictionary.items()))
     for key, value in alphabetized.items():
-        if value == 1:
-            value = f"{value}" + " *"
-        if value == 2:
-            value = f"{value}" + " **"
-        if value == 3:
-            value = f"{value}" + " ***"
-        if value == 4:
-            value = f"{value}" + " ****"
-        if value == 5:
-            value = f"{value}" + " *****"
-        if value == 6:
-            value = f"{value}" + " ******"
-        if value == 7:
-            value = f"{value}" + " *******"
-        if value == 8:
-            value = f"{value}" + " ********"
-        if value == 9:
-            value = f"{value}" + " *********"
-        if value == 10:
-            value = f"{value}" + " **********"
-        print(key, "|", value)
+        print(key, "|", value, "*"*value)
 
 
 if __name__ == "__main__":
