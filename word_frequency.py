@@ -13,11 +13,19 @@ def print_word_freq(file):
     print(f"Your file is: {file}")
     with open(file) as open_file:
         read_file = open_file.read()
-    new_file = read_file.split()
+    new_file = []
+    ommited_words = []
+
     for word in STOP_WORDS:
-        if word in new_file:
-            new_file.remove(word)
+        word = word.split('\n')
+        ommited_words.append(word[0])
+        print(word)
+    for word in read_file:
+        print(word)
     print(new_file)
+    print(ommited_words)
+    p = [t for t in new_file if t not in STOP_WORDS]
+    print(type(p))
     # omit stop words around here
     lowercase = read_file.lower()
     lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
