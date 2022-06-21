@@ -42,3 +42,5 @@ if __name__ == "__main__":
     else:
         print(f"{file} does not exist!")
         exit(1)
+
+"""anonymous functions are not named functions bc they are small and happen in particular circumstances. so key = lambda is an anonymous function like eventlisters and the e variables in javascript, lambda takes x and returns the first value from whatever x is. mostly comes up as a key while working on dictionaries"""
