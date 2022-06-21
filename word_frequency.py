@@ -1,6 +1,6 @@
 from pydoc import text
-from re import A
-
+# call file in terminal by entering:
+# > ❯ python word_frequency.py praise_song_for_the_day.txt
 
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
