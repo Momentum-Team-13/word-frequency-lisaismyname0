@@ -17,14 +17,8 @@ def print_word_freq(file):
     lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
     lowercase_without_punct = lowercase_without_punct1.replace(
         "?", "").replace("'", "")
-    ommited_words = []
-    screened_words = []
     text_split = lowercase_without_punct.split()
-    for word in text_split:
-        if word in STOP_WORDS:
-            ommited_words.append(word)
-        if word not in STOP_WORDS:
-            screened_words.append(word)
+    screened_words = [word for word in text_split if word not in STOP_WORDS]
     text_dictionary = dict.fromkeys(screened_words, 0)
     for word in screened_words:
         text_dictionary[word] += 1
