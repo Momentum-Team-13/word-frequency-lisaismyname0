@@ -16,7 +16,7 @@ def print_word_freq(file):
     lowercase = read_file.lower()
     lowercase_without_punct1 = lowercase.replace(".", "").replace(",", "")
     lowercase_without_punct = lowercase_without_punct1.replace(
-        "?", "")
+        "?", "").replace("'", "")
     ommited_words = []
     screened_words = []
     text_split = lowercase_without_punct.split()
